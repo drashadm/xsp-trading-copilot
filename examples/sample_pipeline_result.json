@@ -1,0 +1,46 @@
+{
+  "ok": true,
+  "trade_date": "2099-01-15",
+  "capture_time": "10:18",
+  "market_state": {
+    "symbol": "SPY",
+    "current_price": 512.34,
+    "opening_high": 513.10,
+    "opening_low": 509.80,
+    "first_break_direction": "up"
+  },
+  "regime": {
+    "label": "fake_breakout_chop",
+    "bias": "neutral",
+    "invalidation_level": null,
+    "reason": "First break did not hold and price returned inside the opening range."
+  },
+  "structure": {
+    "price_zone": "inside_range",
+    "distance_to_oh": -0.76,
+    "distance_to_ol": 2.54,
+    "returned_inside_range": true
+  },
+  "setup_clarity": {
+    "score": 4,
+    "tier": "low",
+    "reasons": [
+      "inside range",
+      "failed continuation"
+    ]
+  },
+  "confidence": {
+    "score": 3,
+    "tier": "low",
+    "reasons": [
+      "weak directional confirmation",
+      "failed breakout behavior"
+    ]
+  },
+  "verifier": {
+    "verifier_stance": "caution",
+    "bias": "neutral",
+    "operator_note": "Sample verifier output only; deterministic regime remains authoritative."
+  },
+  "operator_summary": "Sample only: low-conviction inside-range state; no automatic action."
+}

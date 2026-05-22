@@ -1,0 +1,23 @@
+{
+  "ok": true,
+  "request_type": "contract_quote_request",
+  "tool_called": true,
+  "tool_name": "get_contract_quote",
+  "tool_arguments": {
+    "contract_symbol": "XSP_SAMPLE_CALL_001"
+  },
+  "tool_result": {
+    "ok": true,
+    "contract_symbol": "XSP_SAMPLE_CALL_001",
+    "bid": 1.20,
+    "ask": 1.35,
+    "mark": 1.28,
+    "fetched_at": "2099-01-15T14:18:00Z",
+    "sample": true
+  },
+  "status": "answered",
+  "error_code": null,
+  "message": "Sample read-only quote response. No order can be placed from this response.",
+  "fetched_at": "2099-01-15T14:18:01Z",
+  "operator_summary": "Read-only sample quote lookup completed."
+}

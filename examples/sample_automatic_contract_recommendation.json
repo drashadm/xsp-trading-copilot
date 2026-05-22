@@ -1,0 +1,47 @@
+{
+  "ok": true,
+  "status": "suppressed",
+  "reason_code": "suppressed_same_session",
+  "message": "Sample recommendation was not re-issued because an equivalent same-session recommendation was already surfaced.",
+  "trade_date": "2099-01-15",
+  "direction": "call",
+  "regime": "trend_up",
+  "primary_contract": {
+    "contract_symbol": "XSP_SAMPLE_CALL_001",
+    "option_type": "call",
+    "strike": 515.0,
+    "expiration_date": "2099-01-15",
+    "mark": 1.28,
+    "sample": true
+  },
+  "backup_contracts": [
+    {
+      "contract_symbol": "XSP_SAMPLE_CALL_002",
+      "option_type": "call",
+      "strike": 516.0,
+      "expiration_date": "2099-01-15",
+      "mark": 0.92,
+      "sample": true
+    }
+  ],
+  "market_quote": {
+    "bid": 1.20,
+    "ask": 1.35,
+    "mark": 1.28,
+    "sample": true
+  },
+  "execution_payload": {
+    "execution_ready": true,
+    "approval_status": "APPROVED",
+    "recommendation_only": true,
+    "broker_order_payload": null
+  },
+  "issuance_gate": {
+    "ok": true,
+    "issued": false,
+    "issuance_status": "suppressed",
+    "reason_code": "suppressed_same_session",
+    "prior_recommendation_found": true
+  },
+  "fetched_at": "2099-01-15T14:18:02Z"
+}
