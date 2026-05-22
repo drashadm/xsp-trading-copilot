@@ -1,0 +1,16 @@
+{
+  "trade_date": "2099-01-15",
+  "current_time": "10:18",
+  "symbol": "SPY",
+  "current_price": 512.34,
+  "opening_high": 513.10,
+  "opening_low": 509.80,
+  "first_break_direction": "up",
+  "price_zone": "inside_range",
+  "visual_bias": "neutral",
+  "uncertainty_flags": [
+    "inside_range_rotation",
+    "weak_follow_through"
+  ],
+  "source": "sample_fake_payload"
+}

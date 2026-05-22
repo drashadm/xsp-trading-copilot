@@ -1,0 +1,14 @@
+{
+  "tradeability_score": 2,
+  "entry_quality": "low",
+  "environment_quality": "low",
+  "hold_valid": false,
+  "action_state": "stand_aside",
+  "dont_chase_active": false,
+  "reasons": [
+    "price returned inside opening range",
+    "same-direction continuation not validated",
+    "rotational risk elevated"
+  ],
+  "sample": true
+}
