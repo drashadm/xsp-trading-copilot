@@ -1,0 +1,62 @@
+[
+  {
+    "event_id": "sample-alert-001",
+    "instrument": "XSP/SPY_SYNTHETIC",
+    "transition": "neutral_to_reversal_watch",
+    "alert_status": "eligible",
+    "telegram_enabled": false,
+    "dry_run": true,
+    "suppressed": false,
+    "suppressed_reason": null,
+    "duplicate_key": "2099-01-15:neutral_to_reversal_watch",
+    "cooldown_seconds": 300,
+    "evidence_timestamp": "2099-01-15T15:15:00Z",
+    "created_at": "2099-01-15T15:15:05Z",
+    "audit_note": "Synthetic eligible dry-run alert. No live notification was sent."
+  },
+  {
+    "event_id": "sample-alert-002",
+    "instrument": "XSP/SPY_SYNTHETIC",
+    "transition": "reversal_watch_to_reversal_watch",
+    "alert_status": "suppressed",
+    "telegram_enabled": false,
+    "dry_run": true,
+    "suppressed": true,
+    "suppressed_reason": "cooldown_active",
+    "duplicate_key": "2099-01-15:reversal_watch",
+    "cooldown_seconds": 240,
+    "evidence_timestamp": "2099-01-15T15:16:00Z",
+    "created_at": "2099-01-15T15:16:03Z",
+    "audit_note": "Synthetic suppression because the prior eligible transition was still cooling down."
+  },
+  {
+    "event_id": "sample-alert-003",
+    "instrument": "XSP/SPY_SYNTHETIC",
+    "transition": "reversal_watch_to_candidate",
+    "alert_status": "suppressed",
+    "telegram_enabled": false,
+    "dry_run": true,
+    "suppressed": true,
+    "suppressed_reason": "stale_evidence",
+    "duplicate_key": "2099-01-15:reversal_watch_to_candidate",
+    "cooldown_seconds": 0,
+    "evidence_timestamp": "2099-01-15T15:05:00Z",
+    "created_at": "2099-01-15T15:22:30Z",
+    "audit_note": "Synthetic suppression because evidence age exceeded the configured freshness window."
+  },
+  {
+    "event_id": "sample-alert-004",
+    "instrument": "XSP/SPY_SYNTHETIC",
+    "transition": "candidate_to_candidate",
+    "alert_status": "suppressed",
+    "telegram_enabled": false,
+    "dry_run": true,
+    "suppressed": true,
+    "suppressed_reason": "duplicate_transition",
+    "duplicate_key": "2099-01-15:candidate_to_candidate",
+    "cooldown_seconds": 300,
+    "evidence_timestamp": "2099-01-15T15:24:00Z",
+    "created_at": "2099-01-15T15:24:04Z",
+    "audit_note": "Synthetic duplicate transition record retained for auditability."
+  }
+]
