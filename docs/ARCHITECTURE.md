@@ -65,7 +65,7 @@ This helps downstream services distinguish clean continuation from range rotatio
 
 ## Session Memory
 
-Session memory tracks same-day OH/OL interactions – whether OH or OL was broken, whether those breaks failed, whether price returned inside range, and whether a double-failure pattern occurred.
+Session memory tracks same-day OH/OL interactions: whether OH or OL was broken, whether those breaks failed, whether price returned inside range, and whether a double-failure pattern occurred.
 
 Memory is intraday only. The system intentionally avoids cross day bias.
 
@@ -91,7 +91,7 @@ Verifier output cannot override deterministic regime, confidence, tradeability, 
 
 ## Snapshot Persistence
 
-Snapshots persist the pipeline result for post-session review. In the private system, enrichment payloads – structure, setup clarity, confidence, and tradeability – are stored as JSON fields and deserialized on read.
+Snapshots persist the pipeline result for post-session review. In the private system, enrichment payloads such as structure, setup clarity, confidence, and tradeability are stored as JSON fields and deserialized on read.
 
 Snapshots support evolution analysis without requiring historical screenshots to be reprocessed by the vision model.
 

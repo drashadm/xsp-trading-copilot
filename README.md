@@ -1,10 +1,27 @@
 # XSP Trading Copilot
 
-Governance first decision support architecture for intraday XSP options analysis.
+A deterministic market evidence copilot for live market awareness, replayable decision review, and operator-controlled execution safety.
 
-XSP Trading Copilot is an AI assisted trading support system built around a strict separation of perception and authority. SPY chart screenshots feed an AI vision layer that extracts structured market state; every downstream decision runs through deterministic Python services.
+XSP Trading Copilot turns live TradingView evidence into structured, auditable decision support. The app validates evidence, classifies regime and setup quality through deterministic gates, surfaces a conservative operator posture, and preserves replayable artifacts for review.
 
-Signature doctrine: **LLMs propose. Code enforces.**
+It is not an autonomous trading bot.
+
+Core principle: **AI can observe. Code must enforce. The operator decides.**
+
+## Five-Minute Reviewer Path
+
+Start here if you are reviewing the project quickly:
+
+* [Demo Walkthrough](docs/DEMO_WALKTHROUGH.md)
+* [Safety Model](docs/SAFETY_MODEL.md)
+* [Report Examples](docs/REPORT_EXAMPLES.md)
+* [Broker Safety Boundary](docs/BROKER_SAFETY_BOUNDARY.md)
+* [Public Proof Release](docs/PUBLIC_PROOF_RELEASE.md)
+* [Replay Report Sample](examples/replay_report_sample.md)
+* [Point-in-Time Rehearsal Sample](examples/point_in_time_rehearsal_sample.md)
+* [Alert Outbox Sample](examples/alert_outbox_sample.json)
+* [Public App State Sample](examples/public_app_state_sample.json)
+* [Screenshot Guidance](assets/screenshots/README.md)
 
 ## What This Is
 
@@ -24,6 +41,44 @@ Intraday options workflows degrade quickly when visual interpretation, execution
 * Safety gates fail closed when inputs are missing, malformed, ambiguous, or low quality.
 
 The goal is disciplined decision support, not machine-directed execution.
+
+## What This System Demonstrates
+
+* Live market evidence ingestion.
+* Structured state classification.
+* Deterministic regime, hold, chop, and invalidation gates.
+* Point-in-time no-lookahead rehearsal.
+* Replayable session review.
+* Alert outbox behavior with suppression, cooldowns, and duplicate protection.
+* Broker safety separation between analysis, paper rehearsal, supervised preparation, and live execution authority.
+
+## What This System Does Not Do
+
+* It does not guarantee trading results.
+* It does not make financial decisions for the operator.
+* It does not allow LLMs to override deterministic gates.
+* It does not run hidden autonomous execution loops.
+* It does not enable live options execution without separate official tooling and explicit safety policy.
+
+## Public Proof Surfaces
+
+* **Live Opportunity Tape**: a reviewer-facing view of current evidence, posture, and suppression state.
+* **Replay Reports**: session review artifacts for evidence quality, candidate timing, and missed-context analysis.
+* **Point-in-Time Rehearsal**: no-lookahead review of what the system could know at a specific timestamp.
+* **Alert Outbox**: auditable alert eligibility, dry-run, cooldown, stale-evidence, and duplicate-transition records.
+* **Safety Boundary**: explicit separation between analysis, paper rehearsal, prepare-only packages, operator approval, broker calls, and audit.
+* **Stock Scout / regular stock tracker**: broader watchlist and equity-tracking surfaces that reuse the same evidence-first review posture.
+
+## Enterprise AI Pattern
+
+Although the domain is trading, the architecture demonstrates a broader governed AI pattern:
+
+* probabilistic perception upstream
+* deterministic validation downstream
+* explicit authority boundaries
+* human-controlled escalation
+* auditability
+* fail-closed gates
 
 ## Core Architecture
 
@@ -130,6 +185,7 @@ Outcome tracking is intentionally scoped. Engine-level signal review exists in t
 * Verifier output is additive only.
 * Operator-agent tools are read-only and bounded by an allowlist.
 * Contract recommendation is recommendation-only.
+* Live options execution remains disabled/fail-closed unless official tools and a separate safety policy exist.
 * Missing or ambiguous inputs fail closed.
 * No financial performance guarantees are made.
 
@@ -155,7 +211,13 @@ This public repository is documentation first and intentionally excludes product
 | `docs/SYSTEM_DOCTRINE.md` | Trading-system doctrine and deterministic authority rules |
 | `docs/SAFETY_AND_LIMITATIONS.md` | Boundaries, limitations, and known risks |
 | `docs/OBSERVABILITY.md` | Auditability, persistence, and failure tracking |
+| `docs/DEMO_WALKTHROUGH.md` | Reviewer walkthrough for the public proof package |
+| `docs/SAFETY_MODEL.md` | Authority layers and fail-closed posture |
+| `docs/REPORT_EXAMPLES.md` | Index of synthetic replay and rehearsal artifacts |
+| `docs/BROKER_SAFETY_BOUNDARY.md` | Broker boundary and execution separation |
+| `docs/PUBLIC_PROOF_RELEASE.md` | Public release narrative |
 | `examples/` | Synthetic public-safe JSON examples |
+| `assets/screenshots/README.md` | Rules for future public screenshots |
 
 ## Roadmap
 

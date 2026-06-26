@@ -1,0 +1,23 @@
+{
+  "instrument": "XSP/SPY_SYNTHETIC",
+  "market_regime": "reversal_watch",
+  "posture": "observe_only",
+  "hold_confidence": "medium",
+  "chop_guard": {
+    "active": true,
+    "reason": "first_break_follow_through_incomplete"
+  },
+  "invalidation_context": {
+    "available": true,
+    "description": "Synthetic invalidation context present; raw prices omitted for public safety."
+  },
+  "latest_evidence_age_seconds": 42,
+  "elite_alert_lifecycle_state": "dry_run_eligible",
+  "operator_message": "Synthetic state: evidence is improving, but execution authority remains separated and gated.",
+  "safety_status": {
+    "llm_override_allowed": false,
+    "live_options_execution_enabled": false,
+    "broker_authority": "disabled_fail_closed"
+  },
+  "last_updated": "2099-01-15T15:15:05Z"
+}
