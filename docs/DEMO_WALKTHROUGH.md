@@ -70,7 +70,3 @@ Live options execution remains disabled/fail-closed unless official execution to
 * Do not infer broker execution authority from analysis or rehearsal artifacts.
 * Do not infer that LLM output can override deterministic gates.
 * Do not infer contract-level performance attribution from synthetic examples.
-
-## Safe Screenshot Checklist
-
-Before adding screenshots, verify that they contain no broker account identifiers, order IDs, webhook secrets, bot tokens, private chat IDs, full raw MCP responses, local private paths, raw logs, or financial performance claims.

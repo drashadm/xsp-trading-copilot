@@ -44,7 +44,3 @@ flowchart LR
 * Missing policy fails closed.
 * Ambiguous setup is suppressed.
 * Cooldown and duplicate protection prevent repeated alerting.
-
-## Public Artifact Rules
-
-Public artifacts should show evidence flow, posture, suppression, rehearsal, and audit concepts without exposing execution-enabling material. Do not publish credentials, account identifiers, broker IDs, tokens, chat IDs, webhook secrets, raw MCP responses, private paths, raw screenshots, database files, or live order details.
