@@ -32,9 +32,14 @@ These screenshots are sanitized public proof assets. They demonstrate architectu
 
 ## Suggested Final Filenames
 
+Current public proof assets:
+
 * `01_live_opportunity_tape_public.png`
 * `02_market_closed_safety_state_public.png`
 * `03_replay_report_public.png`
+
+Future public proof assets:
+
 * `04_point_in_time_rehearsal_public.png`
 * `05_alert_outbox_public.png`
 * `06_stock_scout_public.png`
