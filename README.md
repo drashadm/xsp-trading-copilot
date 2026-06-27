@@ -8,6 +8,28 @@ It is not an autonomous trading bot.
 
 Core principle: **AI can observe. Code must enforce. The operator decides.**
 
+## Public Proof Screenshots
+
+These screenshots are public-safe showcase views derived from the real Live Opportunity Tape UI and replay/report surfaces. They demonstrate system posture, safety boundaries, operator-facing decision support, and replayability without exposing private broker, webhook, account, or execution details.
+
+### Live Market State
+
+![Live Opportunity Tape during market hours](assets/screenshots/01_live_opportunity_tape_public.png)
+
+Live market state: alert lifecycle, deterministic guard state, hold confidence, public posture, and candidate tables in a read-only operator cockpit.
+
+### Market-Closed Safety State
+
+![Market-closed safety state](assets/screenshots/02_market_closed_safety_state_public.png)
+
+Market-closed safety state: stale evidence prevents escalation, no alert qualifies, and the cockpit remains read-only.
+
+### Replayable Review
+
+![Replay report public proof](assets/screenshots/03_replay_report_public.png)
+
+Replayable review: a public-safe after-action report showing session evidence, continuation review, Stock Scout findings, watchlist gaps, and what the system could or could not support from local evidence.
+
 ## Five-Minute Reviewer Path
 
 Start here if you are reviewing the project quickly:

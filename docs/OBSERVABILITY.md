@@ -89,7 +89,3 @@ The gate decides surfacing only. It does not select contracts, execute orders, o
 Engine level outcome tracking exists in the private system for reviewing resolved signals and high confidence behavior.
 
 Contract level outcome tracking for agent-called or operator agent surfaced recommendations is still in progress. This repository does not claim full performance attribution for contract level recommendations.
-
-## Public Safe Observability Principle
-
-Public examples should use synthetic values only. Do not publish raw logs, broker responses, account data, screenshots, tokens, database files, or proprietary live configuration.
