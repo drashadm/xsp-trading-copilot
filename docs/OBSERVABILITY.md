@@ -1,91 +1,44 @@
-# Observability
+# Evidence and Auditability
 
-The system is designed so operator facing outputs can be explained after the fact. The full local system uses snapshots, audit rows, issuance events, diagnostics, and review scripts/pages to make pipeline behavior visible without granting execution authority.
+ASUMASNAM XSP is designed so public and operator-facing decisions can be explained from approved evidence without exposing private strategy implementation.
 
-## Stage Level Tracking
-
-The screenshot pipeline has distinct stages where success or failure can be identified:
+## Auditable Decision Path
 
 ```mermaid
-flowchart TD
-    A[Folder scan] --> B{Valid screenshot?}
-    B -->|No| C[Invalid record]
-    B -->|Yes| D[Vision extraction]
-    D --> E{Parse and schema valid?}
-    E -->|No| F[Fail closed]
-    E -->|Yes| G[Deterministic processing]
-    G --> H[Enrichment and scoring]
-    H --> I[Verifier attempt]
-    H --> J[Snapshot save]
-    H --> K[Telegram gate]
-    H --> L[Streamlit display]
+flowchart LR
+    A["Approved Evidence"] --> B["Deterministic Decision"]
+    B --> C["Selected Contract and Alert Basis"]
+    C --> D["Lifecycle State"]
+    D --> E["Subscriber / Public Outcome"]
+    A --> F["Replay Evidence"]
 ```
 
-Each stage has a different failure mode. Separating them helps distinguish input problems, provider problems, validation problems, deterministic suppression, and output surface behavior.
+The audit story records the evidence authority, decision outcome, selected-contract context, lifecycle status, and communication result. Private field layouts, identifiers, schemas, and storage design are not part of the public contract.
 
-## Where Pipeline Failures Can Occur
+## Evidence Authority
 
-Common failure points:
+AMEX:SPY confirmed five-minute bars are the current production market authority. Source and timeframe validation are explicit and fail closed. Evidence that cannot establish the approved authority is not silently promoted.
 
-- no valid screenshot found
-- unsupported filename or symbol
-- OpenAI latency or API failure
-- malformed model output
-- JSON parse failure
-- schema validation failure
-- missing required market state fields
-- contradictory or low quality continuation state
-- snapshot persistence failure
-- Telegram suppression, cooldown, or delivery failure
-- read-only market data provider failure
-- recommendation gate suppression or block
+## Selected-Contract Measurement
 
-The intended behavior is to fail closed rather than fabricate confidence.
+The exact selected XSP contract and its contract price at alert are preserved with the decision. Post-alert public measurement follows that same contract.
 
-## Snapshot Persistence
+This supports truthful descriptions of contract behavior without claiming subscriber execution, realized P/L, or account performance.
 
-Snapshots preserve market state and enrichment artifacts for review. The private system persists structure, setup clarity, confidence, and tradeability payloads as JSON fields, then deserializes them on read.
+## Asynchronous Composition
 
-Snapshot based review allows post session analysis without re-running historical screenshots through vision extraction.
+Market evidence and contract economics may arrive at different times. Late evidence is matched deterministically to the decision it belongs to. Missing or mismatched composition fails closed, and terminal lifecycle states remain immutable.
 
-## Operator-Agent Audit Logging
+## Replay Readiness
 
-The operator-agent audit path stores compact, safe metadata about each invocation. It is passive and does not alter agent behavior.
+Backend v1.4 support preserves replay-capable OHLCV bar evidence. Live validity and replay capability are distinct. A complete session must pass readiness checks before it is labeled replay-ready; partial, mixed, duplicate, or insufficient evidence remains non-ready.
 
-Representative persisted fields:
+## Communication Observability
 
-- trace ID
-- timestamp
-- request type
-- status
-- tool called flag
-- tool name
-- error code
-- compact message
-- tool result success flag
+Telegram and X are communication surfaces, not decision or execution authorities. The system distinguishes whether a lifecycle message or public-proof artifact was eligible, withheld, or awaiting acceptance without publishing private routing details.
 
-Raw tool results are not required for the public observability story and will not be exposed in this showcase repo.
+Automatic X opening proof is production-proven. The repaired terminal route is deployed and awaiting natural production acceptance.
 
-## Recommendation Issuance Gate Logging
+## Public Exclusions
 
-The recommendation issuance gate records whether a read-only recommendation artifact was issued, suppressed, or blocked. This supports session level review of duplicate suppression and state change behavior.
-
-Tracked concepts:
-
-- trade date
-- session ID
-- direction
-- regime
-- contract symbol
-- recommendation identity
-- prior recommendation context
-- reason code
-- issuance status
-
-The gate decides surfacing only. It does not select contracts, execute orders, or reinterpret upstream deterministic eligibility.
-
-## Outcome Tracking Distinction
-
-Engine level outcome tracking exists in the private system for reviewing resolved signals and high confidence behavior.
-
-Contract level outcome tracking for agent-called or operator agent surfaced recommendations is still in progress. This repository does not claim full performance attribution for contract level recommendations.
+The public audit story omits internal reason codes, transition identities, correlation keys, freshness windows, queue mechanics, database paths, complete schemas, private fixtures, and operational credentials.

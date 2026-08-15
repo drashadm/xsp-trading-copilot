@@ -1,46 +1,30 @@
 # Public Screenshot Guidance
 
-This folder is reserved for public-safe screenshots. Do not add placeholder images or broken README links before screenshots are available.
+This folder contains public-safe visuals that demonstrate operator posture and safety boundaries without exposing private configuration, accounts, trading logic, or performance claims.
 
 ## Included Public Proof Screenshots
 
-* `01_live_opportunity_tape_public.png` - live market state showing alert lifecycle, deterministic guard state, hold confidence, public posture, and candidate tables.
-* `02_market_closed_safety_state_public.png` - market-closed safety state showing stale evidence handling, no qualifying alert, hands-off posture, and read-only behavior.
-* `03_replay_report_public.png` - replayable review showing session evidence, continuation review, Stock Scout findings, watchlist gaps, and local-evidence boundaries.
+- `01_live_opportunity_tape_public.png` — a historical operator-cockpit view demonstrating read-only posture and explicit execution boundaries.
+- `02_market_closed_safety_state_public.png` — a market-closed safety state demonstrating that unavailable evidence prevents escalation.
 
-These screenshots are sanitized public proof assets. They demonstrate architecture and workflow behavior, not trading performance. They are not financial advice and do not imply autonomous execution.
+These assets illustrate safety concepts. They are not the current authoritative architecture, trading records, or subscriber-performance evidence.
 
-## Recommended Public Screenshots
+The former replay scoreboard visual was retired because outcome labels could be read as realized-performance claims. It has not been replaced with a fabricated performance graphic.
 
-* Live Opportunity Tape.
-* EOD Replay Markdown report.
-* Point-in-Time Rehearsal.
-* Stock Scout dashboard/report.
-* Alert Outbox panel.
-* Safety Boundary diagram.
+## Preferred Future Visuals
+
+- evidence-first architecture
+- subscriber lifecycle
+- selected-contract public-proof example using authoritative alert-basis semantics
+- replay-capable evidence and readiness distinction
+
+Prefer maintainable Mermaid diagrams in the documentation unless a screenshot adds unique public-proof value.
 
 ## Never Include
 
-* broker account identifiers
-* broker order IDs
-* webhook secrets
-* bot tokens
-* private chat IDs
-* full raw MCP responses
-* private file paths
-* claims implying guaranteed returns or autonomous trading
-
-## Suggested Final Filenames
-
-Current public proof assets:
-
-* `01_live_opportunity_tape_public.png`
-* `02_market_closed_safety_state_public.png`
-* `03_replay_report_public.png`
-
-Future public proof assets:
-
-* `04_point_in_time_rehearsal_public.png`
-* `05_alert_outbox_public.png`
-* `06_stock_scout_public.png`
-* `07_safety_boundary_public.png`
+- broker, account, order, or subscriber identifiers
+- tokens, credentials, webhook secrets, or private destinations
+- provider configuration, production paths, databases, or raw operational receipts
+- exact thresholds, private predicates, correlation identities, or selector logic
+- winner, realized-profit, win-rate, account-return, or guarantee framing
+- language implying autonomous broker or options execution

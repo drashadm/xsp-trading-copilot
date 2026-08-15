@@ -1,74 +1,49 @@
 # System Doctrine
 
-This document captures the doctrine behind XSP Trading Copilot, designed around deterministic enforcement, operator control, and intraday only market structure interpretation.
+ASUMASNAM XSP is governed by evidence quality, deterministic qualification, selected-contract truth, capital safety, operator control, and auditability. This public doctrine intentionally does not describe how the private system discovers its trading edge.
 
-## Instrument Roles
+## Evidence Before Narrative
 
-SPY is the reference instrument. XSP 0DTE is the recommendation context.
+Production decisions begin with approved evidence, not an inferred story. AMEX:SPY confirmed five-minute bars are the current market authority. Evidence from an unapproved source or timeframe cannot silently take its place.
 
-The system observes SPY structure as the primary market proxy for intraday interpretation. XSP contract recommendation artifacts are derived only after deterministic eligibility and read only recommendation gates are satisfied.
+When evidence is missing, stale, malformed, mismatched, contradictory, or incomplete, the system fails closed.
 
-## OH / OL Structure Anchors
+## Qualification Before Communication
 
-Opening high (OH) and opening low (OL) are the primary intraday structure anchors. The system evaluates where current price is relative to those boundaries and whether breaks, failures, or reclaims have occurred.
+A possible setup is not a qualified setup. Deterministic code owns the boundary between observation, qualification, lifecycle progression, and invalidation.
 
-Key concepts:
+Subscriber communication reflects meaningful decision states without exposing private predicates, scores, thresholds, reason codes, or every internal transition.
 
-- Above OH can support bullish continuation only when structure confirms.
-- Below OL can support bearish continuation only when structure confirms.
-- Inside range rotation weakens directional conviction.
-- Failed breaks and returns to range increase chop risk.
+## Selected-Contract Truth
 
-## First Break Logic
+The exact selected XSP contract and its authoritative alert basis remain attached to the decision. Public measurement follows that selected contract; it does not substitute a hypothetical entry or imply subscriber execution.
 
-The first break of the opening range is an initial bias candidate, not a final decision. First break direction must be supported by follow through structure before the system promotes a trend state.
+Private contract-selection logic and provider-specific implementation are not part of the public doctrine.
 
-The first break establishes the session's initial directional hypothesis. It is not sufficient by itself.
+## Capital Safety
 
-## Reclaim-Only Reversals
+Selected-contract economics act as an independent safety authority. Clearly contradictory contract behavior cannot be overridden by optimistic market-state language.
 
-Reversals require reclaim behavior. A reversal is not valid merely because price moves away from an extreme. The broken level must be reclaimed in a way that supports a new directional interpretation.
+PROTECT and TAKE PROFIT are risk guidance. They are not evidence that a subscriber executed an order or realized a profit.
 
-This rule prevents premature reversal labels after weak counter-moves or noisy range rotation.
+## Evidence Composition
 
-## Continuation Requirements
+Related evidence may arrive asynchronously. Late evidence must be deterministically matched to the decision it belongs to, and mismatched evidence must not be composed.
 
-Continuation requires structure plus directional support. A trend label requires evidence such as higher highs for bullish continuation or lower lows for bearish continuation, along with directional confirmation from supporting signals such as DI bias or volume bias.
-
-Weak continuation is suppressed rather than promoted.
-
-## Fake Breakout Chop
-
-`fake_breakout_chop` describes repeated failed breaks, inside-range rotation, or reclaim after break behavior that undermines continuation. It is a low conviction environment and should be treated as a warning state, not an opportunity label.
-
-## No Cross-Day Bias
-
-Each trading day starts as a blank slate. Prior session behavior is not carried forward as bias.
-
-This avoids stale narrative drift and keeps the system anchored to current session structure.
-
-## Intraday Memory Allowed
-
-Intraday memory is allowed and important. The system may track same-day OH/OL breaks, failed breaks, returns inside range, and double failure behavior.
-
-This memory is session scoped. It informs same day suppression and context without becoming a cross day prediction engine.
+Completed and invalidated decisions are immutable. Delayed evidence cannot resurrect a terminal lifecycle.
 
 ## Deterministic Authority
 
-Deterministic services are the source of truth for classification and gating. LLMs may extract observations or provide optional verification, but they never override deterministic outputs.
+AI may assist perception, comparison, summarization, or engineering. It does not own production trading decisions.
 
-Authoritative deterministic responsibilities include:
-
-- regime classification
-- structure enrichment
-- setup clarity
-- confidence scoring
-- tradeability scoring
-- contract selection
-- recommendation issuance / suppression
+Deterministic code governs evidence admission, qualification, lifecycle state, selected-contract context, invalidation, safety, and public-proof eligibility.
 
 ## Operator Control
 
-The system is not an auto trader. It does not place orders or execute trades. The human operator remains in control of all trading decisions.
+The operator decides whether to trade. ASUMASNAM XSP does not place broker orders or execute options trades.
 
-The operating philosophy is simple: LLMs propose. Code enforces. The operator decides.
+The operating principle remains: **AI can observe. Code must enforce. The operator decides.**
+
+## Auditability
+
+The system is designed so a surfaced decision can be traced to approved evidence, deterministic policy, selected-contract context, lifecycle state, and communication outcome without publishing private implementation details.
