@@ -1,34 +1,86 @@
-# Public Proof Release: From Signals to Governed Decision Support
+# Public Proof and Production Lessons
 
-## The Burden
+Public proof exists to make the decision path visible without turning selected-contract behavior into a subscriber-performance claim.
 
-Intraday markets create ambiguity, stale evidence, duplicate alerts, and pressure to automate too much. A public proof package for this system has to show more than signal generation. It has to show that evidence is validated, authority is bounded, and unsafe automation paths are not hidden behind attractive UI language.
+## Performance Truth
 
-## The System
+Public proof reports selected-contract behavior from its authoritative alert basis, including post-alert behavior. It does not represent subscriber execution or realized P/L.
 
-XSP Trading Copilot demonstrates live evidence ingestion, deterministic gates, operator surfaces, replay reports, alert outbox behavior, and broker safety boundaries.
+The selected contract and contract price at alert are persisted with the decision. Post-alert contract high and maximum post-alert move refer to that exact contract—not a hypothetical or reconstructed entry.
 
-The system turns market evidence into structured posture and review artifacts. It keeps live execution authority separated from analysis and requires explicit safety policy before any live broker action could exist.
+No win rate, account-equity return, guaranteed result, or subscriber outcome is claimed.
 
-## The Judgment
+## X Public Proof
 
-AI perception is useful, especially for extracting structure from visual evidence. Authority belongs to deterministic code and the operator.
+### Production-proven opening proof
 
-That judgment is the core design choice: probabilistic observation upstream, deterministic enforcement downstream, human-controlled escalation, and auditable failure modes.
+Automatic opening public proof is production-proven for qualified selected contracts. The public opening record can report:
 
-## The Proof
+- CALL or PUT
+- selected contract
+- expiration
+- contract price at alert
 
-The public proof package includes:
+### Deployed terminal route
 
-* architecture and doctrine docs
-* safety model and broker boundary docs
-* synthetic replay and rehearsal reports
-* alert outbox examples
-* simplified public app state examples
-* screenshot guidance for future public artifacts
+The repaired terminal setup-complete route is deployed and awaiting natural production acceptance. It must not be described as naturally production-proven until a qualifying production lifecycle completes through that path.
 
-## The Next Bottleneck
+Terminal public semantics describe the selected contract, alert basis, post-alert contract high, and maximum post-alert move. They do not claim realized P/L.
 
-The next proof bottleneck is more sanitized visual evidence: public screenshots, replay examples, and outcome attribution that improve reviewer confidence without becoming performance claims.
+## Replay-Capable Evidence
 
-Contract-level outcome attribution should remain carefully scoped until it can be shown without implying guaranteed results or financial advice.
+Backend v1.4 support is deployed. It preserves replay-capable open, high, low, close, and volume bar evidence together with source and timestamp identity.
+
+Live validity and replay capability are separate. A completed session must pass completeness and readiness checks before it is considered replay-ready. Partial, mixed, duplicate, discontinuous, or otherwise insufficient sessions remain non-ready even when some replay evidence exists.
+
+The next complete natural production session is intended to provide the first full natural replay-readiness acceptance opportunity.
+
+Replay rendering is a planned consumer of the evidence archive. A production replay-video renderer is not currently shipped, and no daily-video cadence is promised.
+
+## Production Lessons
+
+These cases describe problem → invariant → improvement. They are not a winner gallery and do not claim subscriber P/L.
+
+### August 11 — Measure the selected contract
+
+**Problem:** A qualified selected contract demonstrated favorable post-alert behavior, but public truth requires an exact measurement basis.
+
+**Invariant:** Contract behavior is measured from the actual selected-contract price recorded at alert.
+
+**Improvement:** Public proof stays attached to the persisted contract rather than a hypothetical entry.
+
+### August 12 — Contract economics constrain optimism
+
+**Problem:** Production evidence showed that market-state optimism could conflict with the economics of the selected contract.
+
+**Invariant:** Selected-contract economics act as an independent safety authority.
+
+**Improvement:** Clearly contradictory contract behavior cannot be hidden by optimistic lifecycle language.
+
+### August 13 — Compose asynchronous evidence
+
+**Problem:** Valid contract evidence could arrive after the initial market evaluation and fail to compose with its decision.
+
+**Invariant:** Late evidence must be deterministically matched to the decision it belongs to.
+
+**Improvement:** Related evidence can enrich the correct lifecycle without being forgotten or attached to an unrelated state.
+
+### August 14 — Preserve evidence authority
+
+**Problem:** A schema migration failed closed and blocked authority until the known-good evidence contract was restored.
+
+**Invariant:** Migration and replay enrichment cannot silently bypass production evidence trust.
+
+**Improvement:** Authority recovered before a later qualified PUT demonstrated favorable selected-contract behavior measured from its alert basis.
+
+## Current Status
+
+| Status | Capability |
+| --- | --- |
+| Production-proven | deterministic lifecycle, AMEX:SPY authority, selected-contract context, Telegram lifecycle, automatic X opening proof, fail-closed handling |
+| Deployed / awaiting natural acceptance | repaired X terminal route, v1.4 full natural-session replay readiness |
+| Roadmap | deterministic replay renderer and prior-day public replay/video artifacts |
+
+## Public-Safety Boundary
+
+This public proof omits exact strategy predicates, thresholds, freshness windows, contract-selection internals, correlation identities, provider configuration, private schemas, raw fixtures, credentials, account data, and operational receipts.

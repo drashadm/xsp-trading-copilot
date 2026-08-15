@@ -2,45 +2,46 @@
 
 Core principle: **AI can observe. Code must enforce. The operator decides.**
 
-The system is designed around explicit authority layers. Each layer can add evidence, validation, posture, or audit context, but execution authority remains separated and gated.
+ASUMASNAM XSP is decision-support software. Broker execution and options execution are disabled.
 
-## Authority Layers
-
-* **Evidence ingestion**: receives and validates live market evidence.
-* **Deterministic analysis**: classifies regime, setup quality, hold context, chop risk, and invalidation through code.
-* **Paper rehearsal**: tests how a candidate would be packaged without live order authority.
-* **Prepare-only live package**: assembles a supervised candidate while stopping before execution.
-* **Explicit operator approval**: requires a human decision before any bounded live action could be considered.
-* **One supervised broker call**: if separately enabled by official tools and policy gates, only one bounded broker action occurs after approval.
-* **Completion audit**: records result, rejection, or abandoned state.
+## Safety Flow
 
 ```mermaid
 flowchart LR
-    A["Evidence Ingestion"] --> B["Deterministic Analysis"]
-    B --> C["Paper Rehearsal"]
-    C --> D["Prepare-Only Live Package"]
-    D --> E{"Explicit Operator Approval?"}
-    E -- "No" --> F["Abandon / Release Budget"]
-    E -- "Yes" --> G["One Supervised Broker Call"]
-    G --> H["Completion Audit"]
-    B -. "No direct execution" .-> X["Broker Tools Blocked"]
-    C -. "No live orders" .-> X
-    D -. "Stops before execution" .-> X
+    A["Approved AMEX:SPY Evidence"] --> B["Deterministic Validation"]
+    B --> C["Qualified Decision"]
+    C --> D["Selected Contract Context"]
+    D --> E["Lifecycle and Economic Safety"]
+    E --> F["Subscriber Communication / Public Proof"]
+    F --> G["Operator Decides Whether to Trade"]
+
+    X["Missing / stale / mismatched / contradictory"] --> Y["Fail Closed"]
+    B -.-> Y
+    E -.-> Y
+    Z["Broker and options execution"] --> Q["Disabled"]
 ```
 
-## Safety Boundaries
+## Authority Boundaries
 
-* No hidden autonomous execution loops.
-* No LLM override of deterministic gates.
-* No stale evidence escalation.
-* No duplicate alert spam.
-* No live options execution without separate official execution tooling and policy gates.
-* Broker credentials and account identifiers are excluded from the public repo.
+- **Evidence validation** admits only the approved source and timeframe.
+- **Deterministic decision logic** owns qualification, lifecycle progression, invalidation, and surfacing.
+- **Selected-contract context** preserves the exact contract and alert basis.
+- **Economic safety** independently checks whether contract behavior contradicts lifecycle optimism.
+- **AI assistance** is non-authoritative and cannot bypass a deterministic gate.
+- **Operator authority** owns the decision to trade.
+- **Broker and options authority** is absent from the current product.
 
-## Failure Posture
+## Fail-Closed Posture
 
-* Malformed evidence fails closed.
-* Unsupported broker action fails closed.
-* Missing policy fails closed.
-* Ambiguous setup is suppressed.
-* Cooldown and duplicate protection prevent repeated alerting.
+- Non-authoritative evidence cannot substitute for AMEX:SPY.
+- Missing, stale, malformed, mismatched, contradictory, or incomplete evidence cannot silently escalate.
+- Late-arriving evidence must match the decision it belongs to.
+- Delayed evidence cannot resurrect a completed or invalidated decision.
+- Replay evidence is not replay-ready until completeness and readiness checks pass.
+- A communication failure cannot create execution authority.
+
+## Public Safety Boundary
+
+PROTECT and TAKE PROFIT are risk guidance, not order instructions or proof of subscriber action. Public proof describes selected-contract behavior from the authoritative alert basis; it does not report realized subscriber P/L.
+
+Exact thresholds, confirmation predicates, freshness windows, correlation identities, private schemas, and selector logic are excluded from this repository.
