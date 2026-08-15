@@ -43,7 +43,7 @@ These cases describe problem → invariant → improvement. They are not a winne
 
 ### August 11 — Measure the selected contract
 
-**Problem:** A qualified selected contract demonstrated favorable post-alert behavior, but public truth requires an exact measurement basis.
+**Problem:** A qualified selected contract made the need for an exact post-alert measurement basis clear.
 
 **Invariant:** Contract behavior is measured from the actual selected-contract price recorded at alert.
 
@@ -71,14 +71,14 @@ These cases describe problem → invariant → improvement. They are not a winne
 
 **Invariant:** Migration and replay enrichment cannot silently bypass production evidence trust.
 
-**Improvement:** Authority recovered before a later qualified PUT demonstrated favorable selected-contract behavior measured from its alert basis.
+**Improvement:** Authority recovered before a later qualified PUT was evaluated and measured from its persisted alert basis.
 
 ## Current Status
 
 | Status | Capability |
 | --- | --- |
 | Production-proven | deterministic lifecycle, AMEX:SPY authority, selected-contract context, Telegram lifecycle, automatic X opening proof, fail-closed handling |
-| Deployed / awaiting natural acceptance | repaired X terminal route, v1.4 full natural-session replay readiness |
+| Deployed / awaiting natural acceptance | repaired X terminal route, first full natural-session replay-readiness acceptance for v1.4 |
 | Roadmap | deterministic replay renderer and prior-day public replay/video artifacts |
 
 ## Public-Safety Boundary
