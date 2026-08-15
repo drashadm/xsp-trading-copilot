@@ -1,6 +1,6 @@
 # Disclaimer
 
-XSP Trading Copilot is an educational, research, and portfolio project.
+ASUMASNAM XSP is a decision-support and research system. It does not execute trades or replace the operator's independent judgment.
 
 It is not financial advice, investment advice, or a trading recommendation service. It does not execute trades, place broker orders, or provide trading authority. Any trading decision remains the sole responsibility of the human operator.
 

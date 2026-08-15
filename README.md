@@ -129,7 +129,7 @@ These are engineering lessons, not a winner gallery.
 **Deployed / awaiting natural acceptance**
 
 - repaired automatic X terminal posting
-- v1.4 complete natural-session replay readiness
+- first full natural-session replay-readiness acceptance for v1.4
 
 **Roadmap**
 
