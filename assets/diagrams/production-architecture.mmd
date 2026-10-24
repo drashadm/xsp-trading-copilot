@@ -1,0 +1,22 @@
+%%{init: {"theme":"base","htmlLabels":false,"fontFamily":"Segoe UI, Arial, sans-serif","themeVariables":{"fontFamily":"Segoe UI, Arial, sans-serif","fontSize":"16px","primaryColor":"#edf3fb","primaryTextColor":"#172b4d","primaryBorderColor":"#7a93b4","lineColor":"#52677f","secondaryColor":"#eef7f2","tertiaryColor":"#faf5ea"},"flowchart":{"htmlLabels":false,"curve":"linear"}}}%%
+flowchart TB
+    TV["TradingView structured evidence"] --> G["Authenticate and validate authority"]
+    G --> S[("Persisted source evidence")]
+    S --> Q["Bounded native work / conditional ownership"]
+    Q --> X["XSP qualification and lifecycle"]
+    Q --> A["Stock Scout frozen Anchor"]
+    A --> R["Advisory ranking / native activation"]
+    R --> SR["Authorized option research"]
+    P["Read-only market data"] --> C["Selected-contract monitoring"]
+    X --> C
+    C --> X
+    P --> SR
+    X --> O[("Durable notification intents")]
+    SR --> O
+    O --> T["Telegram / provider outcome records"]
+    S -. "Stock custody reconciliation" .-> D["Audit-only recovery dispositions"]
+    D -. "No historical actions or delivery" .-> F["Audit trail"]
+    classDef recovery fill:#faf5ea,stroke:#a27a35,color:#483a22;
+    classDef boundary fill:#eef7f2,stroke:#54846c,color:#163c2a;
+    class D,F recovery;
+    class G,Q boundary;

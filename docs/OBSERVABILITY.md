@@ -1,44 +1,19 @@
-# Evidence and Auditability
+# Evidence and auditability
 
-ASUMASNAM XSP is designed so public and operator-facing decisions can be explained from approved evidence without exposing private strategy implementation.
+The [canonical architecture](ARCHITECTURE.md) separates evidence, work custody, decisions, and communication. Observability must distinguish them too. The public description names responsibilities without publishing private schemas or raw receipts.
 
-## Auditable Decision Path
+| Boundary | Question the retained evidence should answer | What it cannot establish alone |
+| --- | --- | --- |
+| Ingress | Was a request accepted, rejected, or unresolved? | A successful-looking response proves downstream completion |
+| Source storage | Was approved evidence persisted with its source identity and time? | Persistence proves complete source continuity or job custody |
+| Durable work | Does the source have exact downstream custody or an explicit disposition? | A completed job proves external delivery |
+| Decision/research | Which validated evidence, policy, lifecycle, and selected contract produced this result? | A model summary grants decision or execution authority |
+| Notification intent | Was publication eligible, withheld, claimed, or fenced? | An outbox row proves a recipient saw a message |
+| Provider outcome | Was delivery acknowledged, definitively rejected, or uncertain? | Acknowledgement proves device display |
+| Recovery | What persisted obligation was accounted for, and what side effects were excluded? | An audit disposition restores a missed historical action |
 
-```mermaid
-flowchart LR
-    A["Approved Evidence"] --> B["Deterministic Decision"]
-    B --> C["Selected Contract and Alert Basis"]
-    C --> D["Lifecycle State"]
-    D --> E["Subscriber / Public Outcome"]
-    A --> F["Replay Evidence"]
-```
+XSP observations remain attached to the selected contract and its reference basis. Stock research observations remain attached to authorized frozen membership and native lifecycle context. Late evidence must match its proper identity; it cannot rewrite a frozen decision basis or revive terminal work.
 
-The audit story records the evidence authority, decision outcome, selected-contract context, lifecycle status, and communication result. Private field layouts, identifiers, schemas, and storage design are not part of the public contract.
+Installation identity, inspected tests, and natural observations receive separate entries in the [dated register](PUBLIC_PROOF_RELEASE.md). Exact operating-system dispatch, database commit instants, complete source coverage, and continuous quote extrema are not universally retained. Missing telemetry is reported as unknown rather than inferred from nearby successful events.
 
-## Evidence Authority
-
-AMEX:SPY confirmed five-minute bars are the current production market authority. Source and timeframe validation are explicit and fail closed. Evidence that cannot establish the approved authority is not silently promoted.
-
-## Selected-Contract Measurement
-
-The exact selected XSP contract and its contract price at alert are preserved with the decision. Post-alert public measurement follows that same contract.
-
-This supports truthful descriptions of contract behavior without claiming subscriber execution, realized P/L, or account performance.
-
-## Asynchronous Composition
-
-Market evidence and contract economics may arrive at different times. Late evidence is matched deterministically to the decision it belongs to. Missing or mismatched composition fails closed, and terminal lifecycle states remain immutable.
-
-## Replay Readiness
-
-Backend v1.4 support preserves replay-capable OHLCV bar evidence. Live validity and replay capability are distinct. A complete session must pass readiness checks before it is labeled replay-ready; partial, mixed, duplicate, or insufficient evidence remains non-ready.
-
-## Communication Observability
-
-Telegram and X are communication surfaces, not decision or execution authorities. The system distinguishes whether a lifecycle message or public-proof artifact was eligible, withheld, or awaiting acceptance without publishing private routing details.
-
-Automatic X opening proof is production-proven. The repaired terminal route is deployed and awaiting natural production acceptance.
-
-## Public Exclusions
-
-The public audit story omits internal reason codes, transition identities, correlation keys, freshness windows, queue mechanics, database paths, complete schemas, private fixtures, and operational credentials.
+For a concrete example of custody evidence and its limits, see the [reliability case study](PRODUCTION_RELIABILITY.md). For independent runnable failure cases, see the [public reference](../reference/README.md). Neither is a benchmark or an end-to-end delivery guarantee.

@@ -1,86 +1,45 @@
-# Public Proof and Production Lessons
+# Dated capability and evidence register
 
-Public proof exists to make the decision path visible without turning selected-contract behavior into a subscriber-performance claim.
+**As of October 24, 2026.** This register replaces the undated/August status labels previously used across the portfolio. It describes the October release reviewed in the architecture audit, not a fresh query of today's running process. Subsequent private candidates are not credited as deployed fixes.
 
-## Performance Truth
+## Evidence classes and provenance
 
-Public proof reports selected-contract behavior from its authoritative alert basis, including post-alert behavior. It does not represent subscriber execution or realized P/L.
+- **Deployed:** source/release inspection and retained installation verification support presence, not exhaustive acceptance.
+- **Natural observation:** a dated production path was observed. Its scope and unresolved failures remain attached.
+- **Inspected tests:** retained regression tests were examined in the architecture review; production tests were not rerun for this portfolio.
+- **Public reference tests:** independently authored educational code runs on synthetic fixtures; results apply only to that example.
+- **Historical illustration:** older screenshots/examples explain a concept without establishing current capability.
+- **Planned / not re-established:** no current deployment or natural-acceptance claim is made.
 
-The selected contract and contract price at alert are persisted with the decision. Post-alert contract high and maximum post-alert move refer to that exact contract—not a hypothetical or reconstructed entry.
+The October 24 architecture review corroborated the installed October release through its manifest, retained independent October 19 installation verification, October 23 runtime records, and a comparison of 21 relevant modules (19 exact matches; two line-ending-only differences). The exact private source revision was checked read-only during portfolio preparation. This identifies the reviewed baseline; it is not new runtime acceptance.
 
-No win rate, account-equity return, guaranteed result, or subscriber outcome is claimed.
+The October 23 end-of-day forensic review was supplied by the operator and inspected for this candidate, alongside retained activation/research summaries. Its aggregate conclusions below were **not independently reconstructed from production databases** during this work. Private raw evidence and release internals are retained outside the public repository.
 
-## X Public Proof
+## Capability-specific status
 
-### Production-proven opening proof
+| Capability | Evidence date and class | Supported scope | Limits / release relationship |
+| --- | --- | --- | --- |
+| Structured ingress and XSP source authority | Oct 24 source/release review; Oct 23 natural review | Authenticated, validated structured evidence; AMEX:SPY confirmed five-minute authority | One Oct 23 SPY bar missing with unknown loss boundary; recent evidence is not proof of continuity |
+| XSP qualification, contract monitoring, terminal ownership | Oct 24 deployed inspection; dated natural lifecycle records | Deterministic qualification and selected-contract economics constrain lifecycle state | Quote coverage is sampled; terminal closure does not imply a fill or realized result |
+| Sequential XSP generations | Oct 22 observations in Oct 23 operator-supplied forensic review | Three sequential, nonoverlapping generations, consistent with authorized policy | Generation 2 ENTRY delivery remains ambiguous; this is not complete delivery acceptance or proof of every reversal route |
+| Settled-reversal route | Oct 24 implementation review; Oct 23 natural review | Deployed policy path inspected | Not exercised on Oct 23; no universal natural-acceptance claim |
+| Telegram notification ownership and ambiguity handling | Oct 24 deployed inspection and inspected fault tests; dated natural delivery records | Durable intent, conditional claims, sequencing, outcome classification | Provider acknowledgement is not device-display proof; Oct 22 ambiguity remains unresolved |
+| Stock Scout frozen Anchor and native activation | Oct 23 retained activation summary; natural observation on reviewed release | Ready snapshot, accepted activation, exact membership verification | AI ranking participation is run-specific; no unrestricted autonomous ranking claim |
+| Native selected-contract research | Oct 23 retained research summary and forensic review; natural observation | Contract/reference context persisted and native tracking initialized | Final terminal-quote acquisition omitted; terminal economics unknown; analogous Oct 21/22 omissions retained |
+| Stock source/job reconciliation | Oct 16 independent cohort review; Oct 23 operator-supplied forensic review | Predecessor mechanism preserved in reviewed successor; 265 persisted sources mapped to 265 completed jobs, including ten audit-only recoveries on Oct 23 | Covers persisted sources only; historical recovery does not create trading actions or delivery |
+| SQLite contention controls | Oct 24 deployed inspection; Oct 23 natural failures | Bounded work, indexing, transaction discipline, and downstream reconciliation | Nine post-persistence admission failures on Oct 23; recovered custody does not eliminate contention |
+| Installation and release succession | Oct 19 retained independent verification; Oct 24 architecture review | Reviewed release identity and installed-source relationship corroborated | Separate from every natural runtime path; no later candidate automatically inherits deployed status |
+| Failure-oriented production regression coverage | Oct 24 architecture review; inspected tests | Crash boundaries, identity conflicts, uncertain outcomes, recovery readiness | Tests inspected, not rerun here; fixtures do not establish natural acceptance |
+| Public durable-outbox reference | Oct 24 authored educational example | Runnable synthetic admission, claiming, uncertainty, terminal tests | Independent schema; no private imports or production qualification |
+| X opening/terminal public posting | August public baseline; historical claim | Earlier documentation recorded opening observations and a deployed terminal repair | Current-release posting acceptance not re-established; neither inherited success nor continued pending status is assumed |
+| Replay evidence/readiness and video rendering | August public baseline; historical claim / planned consumer | Earlier documentation described OHLCV enrichment and readiness gates | Complete current-release replay acceptance not re-established; renderer not claimed shipped |
+| Existing cockpit screenshots and sample reports | Historical public assets | Illustrate safety posture and synthetic review concepts | Not reviewed-release UI or natural production proof; no performance evidence |
+| Expanded intraday discovery, public read-only MCP, cloud migration | Oct 24 roadmap | Future engineering directions | Not deployed capabilities in this portfolio |
 
-Automatic opening public proof is production-proven for qualified selected contracts. The public opening record can report:
+## Measurement and acceptance rules
 
-- CALL or PUT
-- selected contract
-- expiration
-- contract price at alert
+A reference ASK is not an executed fill. Sampled maximum favorable/adverse excursion (MFE/MAE) describes accepted quote samples relative to a reference; it does not establish continuous market extrema, an executable exit, terminal economics, or realized P&L. No outcome gallery, win rate, adoption, uptime, or universal latency claim is supported here.
 
-### Deployed terminal route
+Provider acknowledgement, outbox presence, custody completion, and human receipt are distinct. Audit-only recovery does not repair source loss before persistence or restore missed live actions. Source gaps, admission contention, delayed historical reset reporting, incomplete telemetry, and resource constraints remain relevant limitations.
 
-The repaired terminal setup-complete route is deployed and awaiting natural production acceptance. It must not be described as naturally production-proven until a qualifying production lifecycle completes through that path.
-
-Terminal public semantics describe the selected contract, alert basis, post-alert contract high, and maximum post-alert move. They do not claim realized P/L.
-
-## Replay-Capable Evidence
-
-Backend v1.4 support is deployed. It preserves replay-capable open, high, low, close, and volume bar evidence together with source and timestamp identity.
-
-Live validity and replay capability are separate. A completed session must pass completeness and readiness checks before it is considered replay-ready. Partial, mixed, duplicate, discontinuous, or otherwise insufficient sessions remain non-ready even when some replay evidence exists.
-
-The next complete natural production session is intended to provide the first full natural replay-readiness acceptance opportunity.
-
-Replay rendering is a planned consumer of the evidence archive. A production replay-video renderer is not currently shipped, and no daily-video cadence is promised.
-
-## Production Lessons
-
-These cases describe problem → invariant → improvement. They are not a winner gallery and do not claim subscriber P/L.
-
-### August 11 — Measure the selected contract
-
-**Problem:** A qualified selected contract made the need for an exact post-alert measurement basis clear.
-
-**Invariant:** Contract behavior is measured from the actual selected-contract price recorded at alert.
-
-**Improvement:** Public proof stays attached to the persisted contract rather than a hypothetical entry.
-
-### August 12 — Contract economics constrain optimism
-
-**Problem:** Production evidence showed that market-state optimism could conflict with the economics of the selected contract.
-
-**Invariant:** Selected-contract economics act as an independent safety authority.
-
-**Improvement:** Clearly contradictory contract behavior cannot be hidden by optimistic lifecycle language.
-
-### August 13 — Compose asynchronous evidence
-
-**Problem:** Valid contract evidence could arrive after the initial market evaluation and fail to compose with its decision.
-
-**Invariant:** Late evidence must be deterministically matched to the decision it belongs to.
-
-**Improvement:** Related evidence can enrich the correct lifecycle without being forgotten or attached to an unrelated state.
-
-### August 14 — Preserve evidence authority
-
-**Problem:** A schema migration failed closed and blocked authority until the known-good evidence contract was restored.
-
-**Invariant:** Migration and replay enrichment cannot silently bypass production evidence trust.
-
-**Improvement:** Authority recovered before a later qualified PUT was evaluated and measured from its persisted alert basis.
-
-## Current Status
-
-| Status | Capability |
-| --- | --- |
-| Production-proven | deterministic lifecycle, AMEX:SPY authority, selected-contract context, Telegram lifecycle, automatic X opening proof, fail-closed handling |
-| Deployed / awaiting natural acceptance | repaired X terminal route, first full natural-session replay-readiness acceptance for v1.4 |
-| Roadmap | deterministic replay renderer and prior-day public replay/video artifacts |
-
-## Public-Safety Boundary
-
-This public proof omits exact strategy predicates, thresholds, freshness windows, contract-selection internals, correlation identities, provider configuration, private schemas, raw fixtures, credentials, account data, and operational receipts.
+See [XSP](DEMO_WALKTHROUGH.md), [Stock Scout](STOCK_SCOUT_WALKTHROUGH.md), [reliability](PRODUCTION_RELIABILITY.md), and [safety](SAFETY_AND_LIMITATIONS.md) for the meaning of each boundary.

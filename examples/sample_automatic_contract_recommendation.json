@@ -1,4 +1,5 @@
 {
+  "example_kind": "synthetic_decision_support_illustration",
   "ok": true,
   "status": "suppressed",
   "reason_code": "suppressed_same_session",
@@ -30,11 +31,12 @@
     "mark": 1.28,
     "sample": true
   },
-  "execution_payload": {
-    "execution_ready": true,
-    "approval_status": "APPROVED",
+  "decision_support": {
+    "execution_enabled": false,
+    "approval_status": "NOT_APPLICABLE_EXECUTION_DISABLED",
     "recommendation_only": true,
-    "broker_order_payload": null
+    "broker_order_payload": null,
+    "reference_quote_is_fill": false
   },
   "issuance_gate": {
     "ok": true,

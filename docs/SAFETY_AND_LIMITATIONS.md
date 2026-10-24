@@ -1,44 +1,29 @@
-# Safety and Limitations
+# Safety and limitations
 
-ASUMASNAM XSP is deterministic decision support, not automated execution.
+ASUMASNAM supplies operator-controlled decision support and research. Broker and options execution are disabled. AI assistance cannot override deterministic validation, qualification, membership, economic protection, or terminal-state gates. The operator independently decides whether to trade.
 
-## Current Safety Boundaries
+## Evidence and continuity
 
-- The operator makes every trading decision.
-- Broker execution and options execution are disabled.
-- AI output cannot override deterministic evidence, qualification, lifecycle, invalidation, or safety gates.
-- Missing, stale, malformed, mismatched, contradictory, or non-authoritative evidence fails closed.
-- Selected-contract economics independently constrain optimistic lifecycle language.
-- Delayed evidence cannot resurrect a completed or invalidated decision.
+XSP uses approved AMEX:SPY confirmed five-minute market evidence. Screenshot interpretation or another feed cannot silently substitute for that authority. Source validation and continuity are distinct: a recent valid bar cannot prove earlier completeness. Missing, stale, malformed, mismatched, contradictory, or non-authoritative evidence cannot justify unsupported escalation. Production can still lose sources or fail admission under SQLite contention.
 
-## Evidence Limitations
+Stock Scout requires a ready frozen Anchor, validated selection, and durable research membership. Later information cannot silently change that basis. AI ranking attribution is specific to each run; an operational selection workflow is not proof of universal autonomous model ranking.
 
-Production market authority is AMEX:SPY using confirmed five-minute bars. BATS is not current production authority. Evidence from another source or timeframe cannot silently substitute for the approved contract.
+## Lifecycle and measurement
 
-Fail-closed rules can withhold a state that a human might still find interesting. That conservative posture is intentional: absence of validated evidence is not evidence of readiness.
+`WAIT`, `ENTRY`, `CONTRACT`, `PROTECT`, `TAKE PROFIT`, `INVALIDATED`, and `RESET` describe decision-support states. PROTECT and TAKE PROFIT are risk guidance, not proof of an executed order. A later independently qualified generation cannot reopen the previous terminal lifecycle.
 
-## Lifecycle Limitations
+A reference ASK is not a fill. Sampled MFE/MAE measures accepted quote observations relative to a reference; it is not continuous market extrema, an executable exit, or realized P&L. A terminal lifecycle can lack a final terminal quote. The October 23 review retained this omission and treated terminal economics as unknown.
 
-WAIT, ENTRY, CONTRACT, PROTECT, TAKE PROFIT, INVALIDATED, and RESET are decision-support states.
+## Delivery and recovery
 
-PROTECT and TAKE PROFIT are risk guidance. They do not prove that a subscriber placed, modified, or closed a position. INVALIDATED means the thesis no longer qualifies under the system's evidence contract.
+Source persistence, job custody, outbox presence, provider acknowledgement, and device display are different facts. An uncertain send cannot justify blind replay. These mechanisms do not warrant an exactly-once external-delivery guarantee.
 
-## Selected-Contract and Public-Proof Limitations
+Reconciliation covers persisted sources within its authorized scope. It cannot recover requests never accepted into storage. Audit-only recovery does not generate historical trading actions, acquire historical contracts, call providers, or deliver old alerts. Complete custody for one cohort does not eliminate admission failures or source loss.
 
-Public proof follows the exact selected contract from its authoritative alert basis and may describe post-alert contract behavior. It does not represent subscriber execution, realized P/L, account equity, or a guaranteed outcome.
+## Status and operational limits
 
-Automatic X opening proof is production-proven. The repaired terminal posting route is deployed but still awaits natural production acceptance; autonomous terminal publication is not yet claimed as naturally proven.
+The [dated evidence register](PUBLIC_PROOF_RELEASE.md) preserves unresolved source gaps, admission contention, delivery ambiguity, research terminal-quote omissions, delayed historical reset reporting, incomplete telemetry, and resource constraints. Deployed code, inspected tests, and natural acceptance remain distinct. Older X-publication and replay-readiness claims have not been re-established for the reviewed release.
 
-## Replay Limitations
+Existing screenshots are historical; sample reports and JSON are synthetic illustrations, not production records. Expanded intraday discovery, public read-only MCP, cloud hosting, and replay-video rendering are future directions, not claimed shipped features.
 
-Backend v1.4 support preserves replay-capable OHLCV evidence, but evidence presence alone does not make a session replay-ready. Completeness and readiness checks must pass.
-
-The next complete natural production session is intended to provide the first full natural replay-readiness acceptance opportunity. A production replay-video renderer is not currently shipped.
-
-## AI Boundary
-
-AI-assisted engineering or perception may support the system. Deterministic code governs production decisions, and the operator remains in control. AI is not a contract-selection, lifecycle, public-proof, or execution authority.
-
-## Public Repository Scope
-
-This repository intentionally excludes credentials, account data, private configuration, production paths, databases, raw operational receipts, exact thresholds, detailed predicates, proprietary selector logic, correlation identities, full private schemas, and reconstructable regression fixtures.
+The public repository excludes private strategy rules, thresholds, weights, schemas, configuration, destinations, credentials, accounts, operational logs, databases, and raw receipts. See the [broker boundary](BROKER_SAFETY_BOUNDARY.md) and [disclaimer](../DISCLAIMER.md).

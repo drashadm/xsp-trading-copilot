@@ -1,74 +1,41 @@
-# Evidence-First Architecture
+# Production architecture
 
-ASUMASNAM XSP separates evidence, deterministic authority, selected-contract truth, communication, and execution. The public architecture describes boundaries and invariants; private strategy predicates, thresholds, schemas, and orchestration remain private.
+Reviewed October 24, 2026, against the October production release and retained evidence described in the [status register](PUBLIC_PROOF_RELEASE.md). This is a component-level explanation, not a public production schema or deployment recipe.
 
-## Primary Flow
+![Canonical production architecture](../assets/diagrams/production-architecture.svg)
 
-```mermaid
-flowchart LR
-    A["Authoritative Market Evidence"] --> B["Deterministic Decision Engine"]
-    B --> C["Selected Contract Context"]
-    C --> D["Lifecycle Management"]
-    D --> E["Subscriber Communication / Public Proof"]
-    E --> F["Replay Evidence"]
+[Editable Mermaid source](../assets/diagrams/production-architecture.mmd). This SVG and source are the single canonical diagram reused by the README.
 
-    G["Fail closed"] -.-> A
-    H["Selected-contract economic safety"] -.-> D
-    I["Late evidence matched deterministically"] -.-> C
-    J["Terminal decisions immutable"] -.-> D
-    K["Broker and options execution disabled"] -.-> E
-```
+## Structured evidence and durable work
 
-## Authoritative Market Evidence
+TradingView supplies structured observations. Ingress authenticates and validates input before accepting it into durable storage. For XSP, the approved market authority is AMEX:SPY confirmed five-minute bars; screenshot interpretation and another exchange feed cannot substitute for that authority. Freshness alone does not establish continuity. A valid recent observation can coexist with an earlier missing bar.
 
-Production market authority is AMEX:SPY using confirmed five-minute bars. Source and timeframe are part of the evidence contract. BATS is not current production authority, and non-authoritative evidence cannot silently substitute for the approved source.
+Source persistence, downstream job custody, evaluation, and notification are separate boundaries. Bounded native workers own downstream processing; a source record alone does not prove that a job was admitted or completed. SQLite write contention can still prevent admission. External provider I/O is kept outside the inspected write transactions, while narrow transactions and targeted indexes reduce contention without eliminating it.
 
-Evidence that is missing, stale, malformed, mismatched, contradictory, or from an unapproved source fails closed.
+Stock forward reconciliation examines already-persisted sources for exact downstream custody or an explicit disposition. The recovery path is audit-only: it does not create historical entries, acquire historical contracts, call providers, or deliver old alerts. This boundary is intentionally separate from normal live work. See the [reliability case study](PRODUCTION_RELIABILITY.md).
 
-## Deterministic Decision Authority
+## Two deterministic workflows
 
-Validated evidence enters a deterministic decision engine. Code owns qualification, lifecycle progression, invalidation, safety gates, and whether an output may be surfaced.
+**XSP:** approved evidence → qualification → selected contract and reference quote → economic/lifecycle monitoring → terminal reconciliation → setup ownership release. Later evidence must match the correct lifecycle. A later generation requires independent qualification and session-policy permission; terminal work cannot be resurrected. [Walkthrough](DEMO_WALKTHROUGH.md).
 
-AI-assisted perception or engineering may contribute supporting context, but model output is non-authoritative. It cannot create eligibility, override a deterministic block, or grant execution authority.
+**Stock Scout:** readiness → frozen Anchor → advisory ranking → native membership validation and activation → authorized option research → persisted contract monitoring → terminal handling. Ranking proposals cannot expand the frozen pool or grant execution authority. Attribution of AI participation is specific to each run. [Walkthrough](STOCK_SCOUT_WALKTHROUGH.md).
 
-## Selected Contract Context
+## Notifications and uncertainty
 
-After a setup qualifies, the system persists the exact selected XSP contract and the authoritative contract price at alert. Public proof and post-alert measurement remain attached to that selected contract rather than using a hypothetical entry.
+Durable notification intents precede delivery. Conditional ownership claims, identity checks, sequencing checks, and terminal-state guards constrain which worker may act. Provider acknowledgement records a provider outcome, not device display or human attention. A timeout after a possible send is uncertain; it must not become permission for blind replay. These controls support bounded recovery, not a universal exactly-once delivery guarantee.
 
-Contract-selection rules, selector thresholds, strike logic, provider mechanics, and instrument-matching internals are intentionally excluded.
+The [public reference](../reference/README.md) independently illustrates a subset of these patterns with generic events. Its schema and state machine are educational, not extracted production implementation.
 
-## Asynchronous Evidence Composition
+## Authority map
 
-Market evidence and selected-contract economics can arrive at different times. Late-arriving evidence is deterministically matched to the decision it belongs to; it is not silently discarded or combined with an unrelated state.
-
-The matching mechanism, identities, timing windows, queues, and persistence layout are private implementation details.
-
-## Lifecycle Management
-
-The public lifecycle is WAIT, ENTRY, CONTRACT, PROTECT, TAKE PROFIT, INVALIDATED, and RESET.
-
-Selected-contract economics act as an independent safety check. Optimistic market-state language cannot override clearly contradictory contract economics. Once a decision is terminal, delayed evidence cannot resurrect it.
-
-## Communication and Public Proof
-
-Telegram communicates the meaningful subscriber lifecycle without exposing every internal evaluation. Automatic X opening proof is production-proven. The repaired terminal route is deployed but awaits natural production acceptance.
-
-Public proof reports selected-contract behavior from the authoritative alert basis. It does not represent subscriber execution or realized P/L.
-
-## Replay Evidence
-
-Backend v1.4 support preserves replay-capable OHLCV bar evidence with source and timestamp identity. Live validity and replay capability are separate determinations. A session is replay-ready only after completeness and readiness checks pass.
-
-Replay rendering is a planned consumer of this evidence archive; no production replay-video renderer is currently claimed.
-
-## Authority Map
-
-| Layer | Public responsibility | Authority |
+| Component | Responsibility | Boundary |
 | --- | --- | --- |
-| Market evidence | Provide approved confirmed-bar observations | Authoritative only after deterministic validation |
-| Decision engine | Qualify, invalidate, and progress lifecycle | Deterministic authority |
-| Selected contract | Preserve the exact contract and alert basis | Deterministic persisted context |
-| Economic safety | Challenge lifecycle optimism with contract truth | Independent deterministic safety authority |
-| AI assistance | Observe, compare, summarize, or support engineering | Non-authoritative |
-| Operator | Decide whether to trade | Sole trading authority |
-| Broker/options execution | Not part of the current product | Disabled |
+| Ingress and source validation | Authenticate, validate, persist approved evidence | Rejected or unpersisted requests cannot be assumed recoverable |
+| Native decision and research services | Enforce qualification, membership, lifecycle, economics, and terminal state | AI proposals cannot bypass native gates |
+| AI and operator ranking workflow | Propose a bounded selection or summarize context | Model participation is attributed per run; native acceptance remains required |
+| Durable workers and outbox | Establish custody, conditional ownership, sequencing, and outcome records | An intent is not delivery; uncertainty requires disposition |
+| Operator interface and Telegram | Present state and communicate permitted outcomes | Neither surface grants trading authority |
+| Human operator | Independently decide whether to trade | Any trading action occurs outside these workflows |
+| Broker and options execution | No active product path | Disabled |
+
+Release verification and [bounded observability](OBSERVABILITY.md) apply across the diagram. Installation evidence, regression tests, and natural runtime acceptance remain distinct. Exact predicates, timing windows, identities, ranking weights, endpoints, and private schemas are omitted.

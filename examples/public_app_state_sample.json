@@ -13,7 +13,7 @@
   },
   "latest_evidence_age_seconds": 42,
   "elite_alert_lifecycle_state": "dry_run_eligible",
-  "operator_message": "Synthetic state: evidence is improving, but execution authority remains separated and gated.",
+  "operator_message": "Historical synthetic state: evidence is improving. Broker and options execution are disabled.",
   "safety_status": {
     "llm_override_allowed": false,
     "live_options_execution_enabled": false,
