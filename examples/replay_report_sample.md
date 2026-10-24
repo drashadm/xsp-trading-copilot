@@ -1,5 +1,7 @@
 # Replay Report Sample
 
+Historical synthetic illustration. No replay job was run to produce this narrative. It does not establish current replay readiness, a shipped renderer, or production performance. All prices, times, reasons, and tiers are invented; see the [classification index](README.md).
+
 Session date: `2099-01-15` synthetic  
 Instrument: XSP/SPY evidence simulation  
 Report type: Public-safe replay example
@@ -56,9 +58,9 @@ This field is included to demonstrate replay analysis mechanics only. It is not 
 * Suppression is useful when evidence is ambiguous or stale.
 * A candidate can be review-worthy without being an instruction to trade.
 
-## What This Proves
+## What This Illustrates
 
-* Session artifacts can be replayed.
+* How an authored session-review artifact can describe an evidence sequence.
 * Evidence quality can be tracked over time.
 * Candidate timing can be reviewed without lookahead.
 * Suppression and stale-evidence states can be audited.

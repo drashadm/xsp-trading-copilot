@@ -1,47 +1,16 @@
-# Safety Model
+# Safety model
 
-Core principle: **AI can observe. Code must enforce. The operator decides.**
+**AI proposes; deterministic code enforces; the operator decides.** Broker and options execution are disabled.
 
-ASUMASNAM XSP is decision-support software. Broker execution and options execution are disabled.
+The [architecture authority map](ARCHITECTURE.md#authority-map) is the canonical component description. These are its public safety invariants:
 
-## Safety Flow
+- Approved structured source authority must be established before qualification. Freshness does not erase source gaps.
+- Native code owns qualification, membership validation, economic protection, lifecycle state, and publication eligibility. AI proposals cannot bypass those gates.
+- Stock selection stays within its frozen Anchor. A ranking proposal alone grants no native research authority.
+- Selected-contract observations must match the correct lifecycle and reference basis. Missing or mismatched evidence cannot be silently upgraded.
+- Terminal state cannot be reopened by delayed work. A later XSP generation qualifies independently after ownership release where policy allows.
+- Durable custody is distinct from delivery. Conditional ownership and uncertain-outcome fencing constrain retries.
+- Recovery accounts for already-persisted obligations through its authorized audit-only path; it cannot create historical trading actions or notification delivery.
+- A reference quote, lifecycle label, or provider acknowledgement cannot establish an order, fill, realized result, or human receipt.
 
-```mermaid
-flowchart LR
-    A["Approved AMEX:SPY Evidence"] --> B["Deterministic Validation"]
-    B --> C["Qualified Decision"]
-    C --> D["Selected Contract Context"]
-    D --> E["Lifecycle and Economic Safety"]
-    E --> F["Subscriber Communication / Public Proof"]
-    F --> G["Operator Decides Whether to Trade"]
-
-    X["Missing / stale / mismatched / contradictory"] --> Y["Fail Closed"]
-    B -.-> Y
-    E -.-> Y
-    Z["Broker and options execution"] --> Q["Disabled"]
-```
-
-## Authority Boundaries
-
-- **Evidence validation** admits only the approved source and timeframe.
-- **Deterministic decision logic** owns qualification, lifecycle progression, invalidation, and surfacing.
-- **Selected-contract context** preserves the exact contract and alert basis.
-- **Economic safety** independently checks whether contract behavior contradicts lifecycle optimism.
-- **AI assistance** is non-authoritative and cannot bypass a deterministic gate.
-- **Operator authority** owns the decision to trade.
-- **Broker and options authority** is absent from the current product.
-
-## Fail-Closed Posture
-
-- Non-authoritative evidence cannot substitute for AMEX:SPY.
-- Missing, stale, malformed, mismatched, contradictory, or incomplete evidence cannot silently escalate.
-- Late-arriving evidence must match the decision it belongs to.
-- Delayed evidence cannot resurrect a completed or invalidated decision.
-- Replay evidence is not replay-ready until completeness and readiness checks pass.
-- A communication failure cannot create execution authority.
-
-## Public Safety Boundary
-
-PROTECT and TAKE PROFIT are risk guidance, not order instructions or proof of subscriber action. Public proof describes selected-contract behavior from the authoritative alert basis; it does not report realized subscriber P/L.
-
-Exact thresholds, confirmation predicates, freshness windows, correlation identities, private schemas, and selector logic are excluded from this repository.
+These invariants describe intended enforcement boundaries, not perfect operation. See the [dated limitations](PUBLIC_PROOF_RELEASE.md), [XSP walkthrough](DEMO_WALKTHROUGH.md), [Stock Scout walkthrough](STOCK_SCOUT_WALKTHROUGH.md), and [broker boundary](BROKER_SAFETY_BOUNDARY.md).

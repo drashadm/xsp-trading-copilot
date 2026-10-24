@@ -2,23 +2,18 @@
 
 This folder contains public-safe visuals that demonstrate operator posture and safety boundaries without exposing private configuration, accounts, trading logic, or performance claims.
 
-## Included Public Proof Screenshots
+## Historical screenshots
 
 - `01_live_opportunity_tape_public.png` — a historical operator-cockpit view demonstrating read-only posture and explicit execution boundaries.
 - `02_market_closed_safety_state_public.png` — a market-closed safety state demonstrating that unavailable evidence prevents escalation.
 
-These assets illustrate safety concepts. They are not the current authoritative architecture, trading records, or subscriber-performance evidence.
+Both assets are historical public illustrations. Neither has been established as representative of the October release reviewed on October 24, 2026. They illustrate safety concepts, not current UI, authoritative architecture, trading records, or subscriber-performance evidence. No image pixels were changed for this portfolio candidate.
 
 The former replay scoreboard visual was retired because outcome labels could be read as realized-performance claims. It has not been replaced with a fabricated performance graphic.
 
-## Preferred Future Visuals
+## Current architecture
 
-- evidence-first architecture
-- subscriber lifecycle
-- selected-contract public-proof example using authoritative alert-basis semantics
-- replay-capable evidence and readiness distinction
-
-Prefer maintainable Mermaid diagrams in the documentation unless a screenshot adds unique public-proof value.
+Use the [canonical architecture SVG](../diagrams/production-architecture.svg) and its [editable Mermaid source](../diagrams/production-architecture.mmd) for current component responsibilities. See the [evidence register](../../docs/PUBLIC_PROOF_RELEASE.md) for dated capability claims. Any future UI screenshot needs its own release and disclosure review.
 
 ## Never Include
 

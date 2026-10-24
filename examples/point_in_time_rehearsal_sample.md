@@ -1,5 +1,7 @@
 # Point-in-Time Rehearsal Sample
 
+Historical synthetic illustration. This is authored narrative, not a replay run or evidence of current production acceptance. All reasons and timing values are invented; see the [classification index](README.md).
+
 Timestamp: `As of 11:15 ET`  
 Session date: `2099-01-15` synthetic  
 Mode: no-lookahead public-safe rehearsal
@@ -20,7 +22,7 @@ No later reversal, later trend extension, or end-of-day information was availabl
 
 Candidate classification: `suppressed_reversal_watch`
 
-The candidate was not treated as execution-ready because continuation quality was incomplete and the chop guard remained active.
+The synthetic candidate was suppressed from surfacing because its illustrative evidence was incomplete. Broker and options execution remain disabled regardless of candidate quality.
 
 ## Why Candidate Was Eligible or Suppressed
 
@@ -56,11 +58,11 @@ That later evidence may explain why a future candidate became stronger, but it c
 * Alert outbox cooldown expired.
 * Evidence tier improved from medium to high in the synthetic replay.
 
-## What This Proves
+## What This Illustrates
 
-* The system can rehearse decisions point-in-time.
+* How a point-in-time review can preserve its original evidence basis.
 * Candidate states can be suppressed without disappearing from review.
-* Replay can separate what was known then from what became clear later.
+* How a narrative can separate what was known then from later observations.
 
 ## What This Does Not Prove
 

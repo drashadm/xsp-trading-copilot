@@ -1,6 +1,6 @@
 # Broker Safety Boundary
 
-ASUMASNAM XSP is decision support. The operator decides whether to trade.
+ASUMASNAM provides XSP decision support and Stock Scout research. The operator decides whether to trade. Capability evidence is dated in the [status register](PUBLIC_PROOF_RELEASE.md).
 
 ## Current Product State
 
@@ -9,7 +9,8 @@ ASUMASNAM XSP is decision support. The operator decides whether to trade.
 | Market-evidence validation | Enabled |
 | Deterministic decision lifecycle | Enabled |
 | Selected-contract research and context | Enabled |
-| Subscriber communication and public proof | Enabled within deterministic gates |
+| Telegram communication | Enabled within deterministic gates; delivery outcomes have separate evidence |
+| X public posting | Current acceptance not re-established; see the dated register |
 | Broker execution | **Disabled** |
 | Options execution | **Disabled** |
 
@@ -30,4 +31,4 @@ The operator independently decides whether to trade and, if so, acts outside ASU
 
 Public materials must not include account identifiers, order identifiers, credentials, webhook secrets, Telegram destinations, provider configuration, private filesystem/database paths, raw operational receipts, or execution-shaped payloads.
 
-Historical architecture exploration involving broker integration is outside the current public product and must not be presented as active capability.
+Historical architecture exploration involving broker integration is outside the current public product and must not be presented as active capability. A research activation, selected contract, risk-guidance label, or synthetic recommendation cannot authorize a broker action. The public [recommendation example](../examples/sample_automatic_contract_recommendation.json) explicitly disables execution.

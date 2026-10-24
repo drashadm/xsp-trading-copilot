@@ -1,49 +1,15 @@
-# System Doctrine
+# System doctrine
 
-ASUMASNAM XSP is governed by evidence quality, deterministic qualification, selected-contract truth, capital safety, operator control, and auditability. This public doctrine intentionally does not describe how the private system discovers its trading edge.
+ASUMASNAM keeps evidence, proposal, enforcement, communication, and operator authority explicit. The [architecture](ARCHITECTURE.md) and [safety model](SAFETY_MODEL.md) define those boundaries; this page records the engineering principles behind them.
 
-## Evidence Before Narrative
+**Evidence precedes narrative.** Structured approved sources, durable records, and validated identities support decisions. A plausible AI summary cannot supply missing authority or erase a source gap.
 
-Production decisions begin with approved evidence, not an inferred story. AMEX:SPY confirmed five-minute bars are the current market authority. Evidence from an unapproved source or timeframe cannot silently take its place.
+**Qualification precedes publication.** Native code controls XSP eligibility and lifecycle progression, Stock Scout membership and research authorization, and communication gates. Ranking and summarization remain bounded assistance.
 
-When evidence is missing, stale, malformed, mismatched, contradictory, or incomplete, the system fails closed.
+**Frozen and terminal state mean something.** New observations cannot silently replace a frozen Anchor, attach to another selected contract, or revive a closed lifecycle. Later qualified work has independent identity and authority.
 
-## Qualification Before Communication
+**Custody and outcomes are separate.** Request acceptance, persistence, job completion, notification intent, and provider acknowledgement each need their own evidence. Unknown outcomes remain unknown. Recovery's audit-only path does not turn historical evidence into fresh actions.
 
-A possible setup is not a qualified setup. Deterministic code owns the boundary between observation, qualification, lifecycle progression, and invalidation.
+**Claims stay within their evidence.** Reviewed source, deployment verification, fault tests, synthetic illustrations, and natural observations are distinct. Selected-contract quote excursions do not represent subscriber returns. The [dated register](PUBLIC_PROOF_RELEASE.md) records supported scope and remaining gaps.
 
-Subscriber communication reflects meaningful decision states without exposing private predicates, scores, thresholds, reason codes, or every internal transition.
-
-## Selected-Contract Truth
-
-The exact selected XSP contract and its authoritative alert basis remain attached to the decision. Public measurement follows that selected contract; it does not substitute a hypothetical entry or imply subscriber execution.
-
-Private contract-selection logic and provider-specific implementation are not part of the public doctrine.
-
-## Capital Safety
-
-Selected-contract economics act as an independent safety authority. Clearly contradictory contract behavior cannot be overridden by optimistic market-state language.
-
-PROTECT and TAKE PROFIT are risk guidance. They are not evidence that a subscriber executed an order or realized a profit.
-
-## Evidence Composition
-
-Related evidence may arrive asynchronously. Late evidence must be deterministically matched to the decision it belongs to, and mismatched evidence must not be composed.
-
-Completed and invalidated decisions are immutable. Delayed evidence cannot resurrect a terminal lifecycle.
-
-## Deterministic Authority
-
-AI may assist perception, comparison, summarization, or engineering. It does not own production trading decisions.
-
-Deterministic code governs evidence admission, qualification, lifecycle state, selected-contract context, invalidation, safety, and public-proof eligibility.
-
-## Operator Control
-
-The operator decides whether to trade. ASUMASNAM XSP does not place broker orders or execute options trades.
-
-The operating principle remains: **AI can observe. Code must enforce. The operator decides.**
-
-## Auditability
-
-The system is designed so a surfaced decision can be traced to approved evidence, deterministic policy, selected-contract context, lifecycle state, and communication outcome without publishing private implementation details.
+**The operator retains trading authority.** The system supplies decision support and research. Broker and options execution are disabled; see the [broker safety boundary](BROKER_SAFETY_BOUNDARY.md).
